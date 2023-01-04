@@ -29,11 +29,55 @@
                     <mo>*</mo>
                     <mi>f</mi>
                 </mfrac>
-
             </math>
             <p>dB换算</p>
             <p>趋肤深度计算</p>
+
+            <math>
+                <mi>δ</mi>
+                <mo>=</mo>
+                <mfrac>
+                    <mn>1</mn>
+                    <mroot>
+                        <mi>π f μ σ</mi>
+
+                    </mroot>
+
+                </mfrac>
+            </math>
+
             <p>绝对带宽与相对带宽</p>
+            <math>
+                <mi>RBW</mi>
+                <mo>=</mo>
+                <mn>2</mn>
+                <mo>*</mo>
+                <mfrac>
+                    <mifenced open="(" close=")">
+                        <msub>
+                            <mi>f</mi>
+                            <mi>H</mi>
+                        </msub>
+                        <mo>-</mo>
+                        <msub>
+                            <mi>f</mi>
+                            <mi>L</mi>
+                        </msub>
+                    </mifenced>
+                    <mifenced open="(" close=")">
+                        <msub>
+                            <mi>f</mi>
+                            <mi>H</mi>
+                        </msub>
+                        <mo>+</mo>
+                        <msub>
+                            <mi>f</mi>
+                            <mi>L</mi>
+                        </msub>
+                    </mifenced>
+                </mfrac>
+
+            </math>
         </div>
         <div>
             <h3>天线计算</h3>
@@ -45,6 +89,57 @@
         <div>
             <h3>波导计算</h3>
             <p>矩形波导</p>
+            <math>
+                <msub>
+                    <mi>λ</mi>
+                    <mrow>
+                        <mrow>
+                            <mi>c</mi>
+                        </mrow>
+                    </mrow>
+                </msub>
+                <mo>=</mo>
+                <mfrac>
+                    <mn>2</mn>
+                    <msqrt>
+                        <msup>
+                            <mrow>
+                                <mo>(</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>m</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>a</mi>
+                                    </mrow>
+                                </mfrac>
+                                <mo>)</mo>
+                            </mrow>
+                            <mrow>
+                                <mn>2</mn>
+                            </mrow>
+                        </msup>
+                        <mo>+</mo>
+                        <msup>
+                            <mrow>
+                                <mo>(</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>n</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>b</mi>
+                                    </mrow>
+                                </mfrac>
+                                <mo>)</mo>
+                            </mrow>
+                            <mrow>
+                                <mn>2</mn>
+                            </mrow>
+                        </msup>
+                    </msqrt>
+                </mfrac>
+            </math>
             <p>圆波导</p>
         </div>
     </font>
@@ -53,7 +148,7 @@
 
 <footer>
     <font face="Times">
-    <p>Copyright 2023 lyj. All rights reserved.</p>
+        <p>Copyright 2023 lyj. All rights reserved.</p>
     </font>
 
 </html>
