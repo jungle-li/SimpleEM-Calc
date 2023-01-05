@@ -32,8 +32,30 @@
                 </mfrac>
             </math>
             <p>dB换算</p>
+            <input type="number" id="DB2NUM_NUM"><br>
+            <input type="number" id="DB2NUM_DBW"><br>
+            <table border="1">
+                <tr>
+                    <td align="center">
+                        增益计算：<br>
+                        <script>
+                            function calcDB2NUM_LIN2DBI() {
+                                var lin = Number(document.getElementById('DB2NUM_LIN').value);
+                                document.getElementById('DB2NUM_DBI').value = 10 * Math.log10(lin);
+                            }
+                            function calcDB2NUM_DBI2LIN() {
+                                var dbi = Number(document.getElementById('DB2NUM_DBI').value);
+                                document.getElementById('DB2NUM_LIN').value = Math.pow(10, dbi / 10);
+                            }
+                        </script>
+                        线性值<input type="number" id="DB2NUM_LIN"><br>
+                        <input type="button" value="↓" onclick="calcDB2NUM_LIN2DBI()">
+                        <input type="button" value="↑" onclick="calcDB2NUM_DBI2LIN()"><br>
+                        分贝/dBi<input type="number" id="DB2NUM_DBI"><br>
+                    </td>
+                </tr>
+            </table>
             <p>趋肤深度计算</p>
-
             <math>
                 <mi>δ</mi>
                 <mo>=</mo>
@@ -46,59 +68,73 @@
 
                 </mfrac>
             </math>
+            <table border="1">
+                <tr>
+                    <td align="center">
+                        <p>绝对带宽与相对带宽</p>
+                        <math>
+                            <mi>RBW</mi>
+                            <mo>=</mo>
+                            <mn>2</mn>
+                            <mo>*</mo>
+                            <mfrac>
+                                <mifenced open="(" close=")">
+                                    <msub>
+                                        <mi>f</mi>
+                                        <mi>H</mi>
+                                    </msub>
+                                    <mo>-</mo>
+                                    <msub>
+                                        <mi>f</mi>
+                                        <mi>L</mi>
+                                    </msub>
+                                </mifenced>
+                                <mifenced open="(" close=")">
+                                    <msub>
+                                        <mi>f</mi>
+                                        <mi>H</mi>
+                                    </msub>
+                                    <mo>+</mo>
+                                    <msub>
+                                        <mi>f</mi>
+                                        <mi>L</mi>
+                                    </msub>
+                                </mifenced>
+                            </mfrac>
 
-            <p>绝对带宽与相对带宽</p>
-            <math>
-                <mi>RBW</mi>
-                <mo>=</mo>
-                <mn>2</mn>
-                <mo>*</mo>
-                <mfrac>
-                    <mifenced open="(" close=")">
-                        <msub>
-                            <mi>f</mi>
-                            <mi>H</mi>
-                        </msub>
-                        <mo>-</mo>
-                        <msub>
-                            <mi>f</mi>
-                            <mi>L</mi>
-                        </msub>
-                    </mifenced>
-                    <mifenced open="(" close=")">
-                        <msub>
-                            <mi>f</mi>
-                            <mi>H</mi>
-                        </msub>
-                        <mo>+</mo>
-                        <msub>
-                            <mi>f</mi>
-                            <mi>L</mi>
-                        </msub>
-                    </mifenced>
-                </mfrac>
-
-            </math>
-            <form>
-                <math>
-                    <msub>
-                        <mi>f</mi>
-                        <mi>H</mi>
-                    </msub>
-                </math>:<input type="text" name="RBW_FREQ_H"><br>
-                <math>
-                    <msub>
-                        <mi>f</mi>
-                        <mi>L</mi>
-                    </msub>
-                </math>:<input type="text" name="RBW_FREQ_L"><br>
-                <input type="submit" value="计算"> 相对带宽:<input type="text" name="RBW_VALUE">%<br>
-            </form>
+                        </math>
+                        <br>
+                        <math>
+                            <msub>
+                                <mi>f</mi>
+                                <mi>H</mi>
+                            </msub>
+                        </math>:<input type="number" id="RBW_FREQ_H"><br>
+                        <math>
+                            <msub>
+                                <mi>f</mi>
+                                <mi>L</mi>
+                            </msub>
+                        </math>:<input type="number" id="RBW_FREQ_L"><br>
+                        <script>
+                            function calcRBW() {
+                                var freq_h = document.getElementById('RBW_FREQ_H').value;
+                                var freq_l = document.getElementById('RBW_FREQ_L').value;
+                                var rbw_pct = 200 * (Number(freq_h) - Number(freq_l)) / (Number(freq_h) + Number(freq_l));
+                                // console.log(rbw_pct);
+                                document.getElementById("RBW_VALUE").value = rbw_pct;
+                            }
+                        </script>
+                        <input type="button" value="↓" onclick="calcRBW()"><br>
+                        相对带宽:<input type="number" id="RBW_VALUE">%<br>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div>
             <h3>天线计算</h3>
             <p>阻抗特性计算</p>
-            <p>dB换算</p>
+
             <p>近场、远场范围计算</p>
             <math>
                 <msub>
